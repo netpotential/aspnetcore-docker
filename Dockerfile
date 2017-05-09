@@ -18,11 +18,25 @@ RUN powershell -NoProfile -Command $ErrorActionPreference = 'Stop'; `
   
 RUN setx /M PATH "%PATH%;C:\dotnet"
 
+# Get .NET target/dev/sdk pack from https://www.microsoft.com/net/targeting
+
 # Install .NET Framework 4.5.1 SDK
 RUN powershell -NoProfile -Command $ErrorActionPreference = 'Stop'; `
   Invoke-WebRequest 'https://download.microsoft.com/download/9/6/0/96075294-6820-4F01-924A-474E0023E407/NDP451-KB2861696-x86-x64-DevPack.exe' -OutFile C:\NDP451-KB2861696-x86-x64-DevPack.exe; `
   Start-Process "C:\NDP451-KB2861696-x86-x64-DevPack.exe" -ArgumentList '/q', '/norestart' -Wait; `
   Remove-Item -Force C:\NDP451-KB2861696-x86-x64-DevPack.exe
+
+# Install .NET Framework 4.6 SDK
+RUN powershell -NoProfile -Command $ErrorActionPreference = 'Stop'; `
+  Invoke-WebRequest 'https://download.microsoft.com/download/C/3/A/C3A5200B-D33C-47E9-9D70-2F7C65DAAD94/NDP46-KB3045557-x86-x64-AllOS-ENU.exe' -OutFile C:\NDP46-KB3045557-x86-x64-AllOS-ENU.exe; `
+  Start-Process "C:\NDP46-KB3045557-x86-x64-AllOS-ENU.exe" -ArgumentList '/q', '/norestart' -Wait; `
+  Remove-Item -Force C:\NDP46-KB3045557-x86-x64-AllOS-ENU.exe
+  
+  # Install .NET Framework 4.6.1 SDK
+RUN powershell -NoProfile -Command $ErrorActionPreference = 'Stop'; `
+  Invoke-WebRequest 'https://download.microsoft.com/download/F/1/D/F1DEB8DB-D277-4EF9-9F48-3A65D4D8F965/NDP461-DevPack-KB3105179-ENU.exe' -OutFile C:\NDP461-DevPack-KB3105179-ENU.exe; `
+  Start-Process "C:\NDP461-DevPack-KB3105179-ENU.exe" -ArgumentList '/q', '/norestart' -Wait; `
+  Remove-Item -Force C:\NDP461-DevPack-KB3105179-ENU.exe
 
 # Install .NET Framework 4.6.2 SDK
 RUN powershell -NoProfile -Command $ErrorActionPreference = 'Stop'; `
