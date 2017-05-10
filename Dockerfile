@@ -28,9 +28,9 @@ RUN powershell -NoProfile -Command $ErrorActionPreference = 'Stop'; `
 
 # Install .NET Framework 4.6 SDK
 RUN powershell -NoProfile -Command $ErrorActionPreference = 'Stop'; `
-  Invoke-WebRequest 'https://download.microsoft.com/download/C/3/A/C3A5200B-D33C-47E9-9D70-2F7C65DAAD94/NDP46-KB3045557-x86-x64-AllOS-ENU.exe' -OutFile C:\NDP46-KB3045557-x86-x64-AllOS-ENU.exe; `
-  Start-Process "C:\NDP46-KB3045557-x86-x64-AllOS-ENU.exe" -ArgumentList '/q', '/norestart' -Wait; `
-  Remove-Item -Force C:\NDP46-KB3045557-x86-x64-AllOS-ENU.exe
+  Invoke-WebRequest 'https://download.microsoft.com/download/8/2/F/82FF2034-83E6-4F93-900D-F88C7AD9F3EE/NDP46-TargetingPack-KB3045566-ENU.exe' -OutFile C:\NDP46-TargetingPack-KB3045566-ENU.exe; `
+  Start-Process "C:\NDP46-TargetingPack-KB3045566-ENU.exe" -ArgumentList '/q', '/norestart' -Wait; `
+  Remove-Item -Force C:\NDP46-TargetingPack-KB3045566-ENU.exe
   
   # Install .NET Framework 4.6.1 SDK
 RUN powershell -NoProfile -Command $ErrorActionPreference = 'Stop'; `
